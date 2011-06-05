@@ -1,0 +1,19 @@
+{
+  "name": "The Hit List for Chrome",
+  "version": "0.1",
+  "description": "Add a new task to The Hit List with the URL of the web page you are viewing",
+  "background_page": "background.html",
+  "browser_action": {
+    "default_icon": "icon-16.png",
+    "default_title": "Add Task to The Hit List with the current URL"
+  },
+  "options_page": "options.html",
+  "icons": {
+      "16":  "icon-16.png",
+      "32":  "icon-32.png",
+      "48":  "icon-48.png"
+  },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ]
+}

@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>Options for Omnicamp</title>
+    <style type="text/css">
+    /* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
+       j.mp/bestclearfix */
+    .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+    .clearfix:after { clear: both; }
+    /* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+    .clearfix { zoom: 1; }
+
+    body {
+      background-color: #ececec;
+      color: #565656;
+      font: 62.5% Helvetica, Arial, sans-serif;
+    }
+
+    .wrapper {
+      margin: 0 auto;
+      position: relative;
+      width: 320px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 25px 0 0;
+      text-align: center;
+    }
+
+    #options {
+      -webkit-border-radius: 20px;
+      -webkit-box-shadow: 2px 2px 10px #ccc;
+      background-color: #fff;
+      margin: 25px auto 0;
+      padding: 25px 10px;
+      text-align: center;
+      width: 370px;
+    }
+
+    #options label {
+      display: block;
+      font-size: 1.65em;
+      font-weight: bold;
+      letter-spacing: -0.025em;
+      margin: 0 0 5px 15px;
+      text-align: left;
+    }
+
+    #options input {
+      -webkit-border-radius: 5px;
+      background-color: #eaeaea;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #eaeaea));
+      border: 1px solid #cacaca;
+      color: #444;
+      font-size: 1.4em;
+      margin: 0 0 25px;
+      padding: 8px 10px;
+      width: 350px;
+    }
+
+    #options select { display: block; margin: 0 0 20px 15px; width: 90%; }
+
+    #options button {
+      -webkit-border-radius: 5px;
+      background-color: #dedede;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ffffff), color-stop(1.0, #dedede));
+      border: 1px solid #dedede;
+      color: #484848;
+      font-size: 1.65em;
+      font-weight: bold;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    #status {
+      text-align: center;
+      font-size: 120%;
+      padding: 1em;
+    }
+    .logo {
+      background: transparent url(icon-128.png) no-repeat left top;
+      display: block;
+      height: 128px; width: 128px;
+    }
+    .header { text-align: left; margin-top: -1.5em; margin-bottom: 1.5em; }
+    .header > div {
+      float: left;
+    }
+    .header .content { width: 220px; padding-left: 20px; }
+    .header h1 { margin-top: 1.2em; }
+    .description { font-style: italic; }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+      function loadOptions() {
+        var inboxPosition = localStorage['inbox_position'] || '0.0';
+        document.getElementById('inbox_position').value = inboxPosition;
+      }
+
+      function saveOptions() {
+        localStorage['inbox_position'] = document.getElementById('inbox_position').value;
+      }
+    </script>
+  </head>
+
+  <body onload="loadOptions()">
+    <div id="options" class="container">
+      <div class="header clearfix">
+        <div class="logo"></div>
+        <div class="content">
+          <h1 class="">The Hit List for Chrome</h1>
+          <p class="description">Add a new task to The Hit List with the URL of the web page you are viewing</p>
+        </div>
+      </div>
+      <label for="inbox_position">Add new task to</label>
+      <select name="inbox_position" id="inbox_position" onchange="saveOptions()">
+        <option value="0.0">Top of Inbox</option>
+        <option value="-1">Bottom of Inbox</option>
+      </select>
+    </div>
+  </body>
+</html>
