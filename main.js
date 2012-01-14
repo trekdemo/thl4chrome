@@ -10,7 +10,11 @@ function sendToTHL(tabID, title, url, selection) {
   if (startDate() !== '') link += '&startDate=' + encodeURIComponent(startDate().toString());
   console.log(link);
 
+  chrome.browserAction.setBadgeText({text: 'OK', tabId: tabID});
   chrome.tabs.update( tabID, {'url': link});
+  setTimeout( function(){
+    chrome.browserAction.setBadgeText({text: '', tabId: tabID});
+  }, 2000);
 }
 
 function inboxPosition() {
