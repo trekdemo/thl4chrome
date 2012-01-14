@@ -94,11 +94,14 @@
     <script type="text/javascript" charset="utf-8">
       function loadOptions() {
         var inboxPosition = localStorage['inbox_position'] || '0.0';
+        var startDate = localStorage['start_date'] || '';
         document.getElementById('inbox_position').value = inboxPosition;
+        document.getElementById('start_date').value = startDate;
       }
 
       function saveOptions() {
         localStorage['inbox_position'] = document.getElementById('inbox_position').value;
+        localStorage['start_date']     = document.getElementById('start_date').value;
       }
     </script>
   </head>
@@ -116,6 +119,13 @@
       <select name="inbox_position" id="inbox_position" onchange="saveOptions()">
         <option value="0.0">Top of Inbox</option>
         <option value="-1">Bottom of Inbox</option>
+      </select>
+      <label for="start_date">Default start date</label>
+      <select name="start_date" id="start_date" onchange="saveOptions()">
+        <option value="">Not set</option>
+        <option value="today">Today</option>
+        <option value="+1day">Tommorow</option>
+        <option value="+7day">Next week</option>
       </select>
     </div>
   </body>

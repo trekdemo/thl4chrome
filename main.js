@@ -7,6 +7,7 @@ function sendToTHL(tabID, title, url, selection) {
   var link = 'thehitlist:///inbox/tasks?method=POST&index=' + inboxPosition() + '&title=' + title + '&url=' + url;
 
   if (notes.length > 0) link += '&notes=' + encodeURIComponent(notes);
+  if (startDate() !== '') link += '&startDate=' + encodeURIComponent(startDate().toString());
   console.log(link);
 
   chrome.tabs.update( tabID, {'url': link});
@@ -14,6 +15,11 @@ function sendToTHL(tabID, title, url, selection) {
 
 function inboxPosition() {
   return localStorage['inbox_position'] || '0.0';
+}
+
+function startDate() {
+  console.log( localStorage['start_date'] );
+  return localStorage['start_date'] || '';
 }
 
 // This will get called by the content script we execute in
