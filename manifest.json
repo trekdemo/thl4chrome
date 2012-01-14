@@ -1,6 +1,6 @@
 {
   "name": "The Hit List for Google Chrome",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Add a new task to The Hit List with the URL of the web page you are viewing",
   "background_page": "background.html",
   "browser_action": {
