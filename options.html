@@ -95,13 +95,16 @@
       function loadOptions() {
         var inboxPosition = localStorage['inbox_position'] || '0.0';
         var startDate = localStorage['start_date'] || '';
+        var startDate = localStorage['tag_or_context'] || '';
         document.getElementById('inbox_position').value = inboxPosition;
         document.getElementById('start_date').value = startDate;
+        document.getElementById('tag_or_context').value = tagOrContext;
       }
 
       function saveOptions() {
         localStorage['inbox_position'] = document.getElementById('inbox_position').value;
         localStorage['start_date']     = document.getElementById('start_date').value;
+        localStorage['tag_or_context'] = document.getElementById('tag_or_context').value;
       }
     </script>
   </head>
@@ -127,6 +130,8 @@
         <option value="+1day">Tommorow</option>
         <option value="+7day">Next week</option>
       </select>
+      <label for="tag_or_context">Default tag or context</label>
+      <input name="tag_or_context" id="tag_or_context" onkeyup="saveOptions()"/>
     </div>
   </body>
 </html>

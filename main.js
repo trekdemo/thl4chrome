@@ -1,10 +1,10 @@
 function sendToTHL(tabID, title, url, selection) {
   var index = 1, //event.message['index'],
-      title = encodeURIComponent('Look at "' + title + '"'),
+      title = encodeURIComponent('Look at "' + title + '"' + tagOrContext()),
       url   = encodeURIComponent(url),
       notes = selection;
 
-  var link = 'thehitlist:///inbox/tasks?method=POST&index=' + inboxPosition() + '&title=' + title + '&url=' + url;
+  var link = 'thehitlist:///inbox/tasks?method=POST&index=' + inboxPosition() + '&url=' + url + '&title=' + title;
 
   if (notes.length > 0) link += '&notes=' + encodeURIComponent(notes);
   if (startDate() !== '') link += '&startDate=' + encodeURIComponent(startDate().toString());
@@ -20,6 +20,11 @@ function inboxPosition() {
 function startDate() {
   console.log( localStorage['start_date'] );
   return localStorage['start_date'] || '';
+}
+
+function tagOrContext() {
+  console.log( localStorage['tag_or_context'] )
+  return ( ' ' + localStorage['tag_or_context'] ) || '';
 }
 
 // This will get called by the content script we execute in
